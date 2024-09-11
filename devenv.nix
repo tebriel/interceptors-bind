@@ -16,7 +16,12 @@
   # '';
   dotenv.enable = true;
 
-  devcontainer.enable = true;
+  devcontainer = {
+    enable = true;
+    settings.customizations.vscode.extensions = [
+      "rvest.vs-code-prettier-eslint"
+    ];
+  };
 
   # cachix.pull = [ "pre-commit-hooks" ];
 
