@@ -47,19 +47,36 @@ interceptor.on(
 
 test("POST /a/b/c", async () =>
   new Promise((done) => {
+    console.log('promise');
     try {
-      http.post(
+      console.log('try');
+      const req = http.request(
         {
-          hostname: "127.0.0.1",
-          port: 8126,
-          path: "/a/b/c",
+          host: '127.0.0.1',
+          port: '80',
+          protocol: 'http:',
           agent: HttpAgent,
+          method: 'POST',
         },
         (res) => {
+          res.on('end', () => {
+            console.log('done');
+            done();
+          });
+          console.log('hi');
           expect(res.statusCode).toEqual(200);
         },
       );
-    } finally {
+      console.log('sent');
+      req.on('error', (e) => {
+        console.error(`problem with request: ${e.message}`);
+      });
+      req.write('');
+      req.end();
+    } catch (error) {
+      console.log(error);
       done();
+    } finally {
+      console.log('finally');
     }
   }));

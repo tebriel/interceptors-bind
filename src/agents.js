@@ -11,6 +11,7 @@ function createAgentClass (BaseAgent) {
     }
 
     createConnection (...args) {
+      console.log('hello')
       return this._noop(() => super.createConnection(...args))
     }
 
@@ -23,6 +24,7 @@ function createAgentClass (BaseAgent) {
     }
 
     _noop (callback) {
+      console.log('hell yeah')
       return
     }
   }

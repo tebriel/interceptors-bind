@@ -64,7 +64,7 @@
     "why-is-node-running": "^2.3.0"
   },
   "scripts": {
-    "test": "vitest"
+    "test": "vitest --disableConsoleIntercept"
   },
   "repository": {
     "type": "git",
