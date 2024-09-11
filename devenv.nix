@@ -16,6 +16,8 @@
   # '';
   dotenv.enable = true;
 
+  devcontainer.enable = true;
+
   # cachix.pull = [ "pre-commit-hooks" ];
 
   # https://devenv.sh/tests/

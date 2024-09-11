@@ -34,5 +34,6 @@ const HttpAgent = createAgentClass(http.Agent)
 const HttpsAgent = createAgentClass(https.Agent)
 
 module.exports = {
-  HttpsAgent: new HttpsAgent()
+  HttpAgent: new HttpAgent(),
+  HttpsAgent: new HttpsAgent(),
 }

@@ -1,8 +1,8 @@
-import https from "node:https";
+import http from "node:http";
 import { expect, test, vi } from "vitest";
 import { ClientRequestInterceptor } from "@mswjs/interceptors/ClientRequest";
 
-import { HttpsAgent } from "../src/agents";
+import { HttpAgent } from "../src/agents";
 
 const mockFailbot = { report: vi.fn() };
 
@@ -45,15 +45,15 @@ interceptor.on(
   }
 )
 
-test("GET /", async () =>
+test("POST /a/b/c", async () =>
   new Promise((done) => {
     try {
-      https.get(
+      http.post(
         {
-          hostname: "localhost",
-          port: 80,
-          path: "/",
-          agent: HttpsAgent,
+          hostname: "127.0.0.1",
+          port: 8126,
+          path: "/a/b/c",
+          agent: HttpAgent,
         },
         (res) => {
           expect(res.statusCode).toEqual(200);
