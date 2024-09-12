@@ -11,20 +11,10 @@ function createAgentClass (BaseAgent) {
     }
 
     createConnection (...args) {
-      console.log('hello')
       return this._noop(() => super.createConnection(...args))
     }
 
-    keepSocketAlive (...args) {
-      return this._noop(() => super.keepSocketAlive(...args))
-    }
-
-    reuseSocket (...args) {
-      return this._noop(() => super.reuseSocket(...args))
-    }
-
     _noop (callback) {
-      console.log('hell yeah')
       return
     }
   }
